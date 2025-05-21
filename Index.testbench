@@ -1,0 +1,11 @@
+// Memory array
+    reg [DATA_WIDTH-1:0] mem [0:(1<<ADDR_WIDTH)-1];
+
+    always @(posedge clk) begin
+        if (we) begin
+            mem[addr] <= din;             // Write operation
+        end
+        if (re) begin
+            dout <= mem[addr];            // Read operation
+        end
+    end
